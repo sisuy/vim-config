@@ -1,11 +1,11 @@
 set encoding=utf-8
 set number
+set mouse=a
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 " 设置缩进
 set tabstop=4
 set shiftwidth=4
-
 
 call plug#begin()
 " Use release branch (recommend)
@@ -45,13 +45,19 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Unmanaged plugin (manually installed and updated)
 Plug '~/my-prototype-plugin'
 
+" Theme
+Plug 'bluz71/vim-nightfly-colors'
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
 
 " 插件Mapping
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 
 " 使用tab进行补全
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>"
 
+" Vimscript initialization file
+colorscheme nightfly
+set termguicolors
