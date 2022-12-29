@@ -2,12 +2,26 @@ set encoding=utf-8
 set number
 set mouse=a
 let g:python3_host_prog = '/usr/local/bin/python3'
+let Tlist_Ctags_Cmd="/usr/bin/ctags"
 
 " 设置缩进
 set tabstop=4
 set shiftwidth=4
 
+" leaderkey = ','
+let mapleader = ","
+
+" Ctrl+c 复制到系统剪切板
+nnoremap <C-c> "+y
+
+" 在普通模式下，Ctrl + enter 查看函数定义
+nnoremap <C-Enter> <C-]>
+
 call plug#begin()
+" Startify
+Plug 'mhinz/vim-startify'
+
+
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-json','coc-css','coc-java','coc-python','coc-lua']
